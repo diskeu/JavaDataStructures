@@ -21,7 +21,7 @@ public class TestDynamicArray {
         
         // Act
         dynamicArray.add("fizz");
-        
+
         // Assert
         /* The capacity gets full, if the doubling
         wouldn't work it'd throw an Exception */
@@ -30,5 +30,21 @@ public class TestDynamicArray {
                 dynamicArray.add("brazz");
             }
         );
+    }
+    @Test
+    public void GetElements() {
+        // Arrange
+        DynamicArray<String> dynamicArray = new DynamicArray<>("foo");
+
+        // Act
+        dynamicArray.add("fizz");
+        dynamicArray.add("buzz");
+        dynamicArray.add("brazz");
+
+        // Assert
+        assertEquals(dynamicArray.get(0), "foo");
+        assertEquals(dynamicArray.get(1), "fizz");
+        assertEquals(dynamicArray.get(2), "buzz");
+        assertEquals(dynamicArray.get(3), "brazz");
     }
 }
