@@ -1,4 +1,4 @@
-package dev.timjelenz.dynamicarray;
+package src.dev.timjelenz.dynamicarray;
 
 import java.util.List;
 import java.util.Collection;
