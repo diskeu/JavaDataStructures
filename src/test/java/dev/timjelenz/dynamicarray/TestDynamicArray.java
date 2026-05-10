@@ -47,4 +47,26 @@ public class TestDynamicArray {
         assertEquals(dynamicArray.get(2), "buzz");
         assertEquals(dynamicArray.get(3), "brazz");
     }
+    @Test
+    public void InsertElement() {
+        // Arrange
+        DynamicArray<String> dynamicArray = new DynamicArray<>();
+        
+        // Act
+        dynamicArray.add("foo");
+        dynamicArray.add("fizz");
+        dynamicArray.add("buzz");
+        // add `brazz` between foo and fizz
+        dynamicArray.add(1, "brazz");
+
+        // Asssert
+        System.out.println("INDEX 0 " + dynamicArray.get(0));
+        System.out.println("INDEX 1 " + dynamicArray.get(1));
+        System.out.println("INDEX 2 " + dynamicArray.get(2));
+        System.out.println("INDEX 3 " + dynamicArray.get(3));
+        assertEquals(dynamicArray.get(0), "foo");
+        assertEquals(dynamicArray.get(1), "brazz");
+        assertEquals(dynamicArray.get(2), "fizz");
+        assertEquals(dynamicArray.get(3), "buzz");
+    }
 }

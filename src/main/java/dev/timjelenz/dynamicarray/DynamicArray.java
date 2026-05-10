@@ -114,7 +114,6 @@ public class DynamicArray<E> implements List<E> {
             for (int i = 0; i < oldArray.length; i++) {
                 this.currentList[i] = oldArray[i];
             }
-            this.count = oldArray.length;
             return true;
         }
         return false;
@@ -133,12 +132,12 @@ public class DynamicArray<E> implements List<E> {
         if (index > this.count)
             throw new IndexOutOfBoundsException("Index has to be 0 <= Index <= Array.length");
 
+        this.count++;
         doubleSize();
-        for (int i = this.count; i >= index; i--) {
-            this.currentList[i] = this.currentList[i+1];
+        for (int i = this.count-1; i > index; i--) {
+            this.currentList[i] = this.currentList[i-1];
         }
         this.currentList[index] = (Object) element;
-        this.count++;
     }
     @Override
     public boolean addAll(Collection<? extends E> c) {
