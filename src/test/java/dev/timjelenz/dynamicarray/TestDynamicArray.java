@@ -13,4 +13,22 @@ public class TestDynamicArray {
         assertEquals(dynamicArray1.size(), 3);
         assertEquals(dynamicArray2.size(), 0);
     }
+    @Test
+    public void ShouldDoubleCapacity() {
+        // Arrange
+        // makes instance of `DynamicArray` with size 2
+        DynamicArray<String> dynamicArray = new DynamicArray<>("foo");
+        
+        // Act
+        dynamicArray.add("fizz");
+        
+        // Assert
+        /* The capacity gets full, if the doubling
+        wouldn't work it'd throw an Exception */
+        assertDoesNotThrow(() -> {
+                dynamicArray.add("buzz");
+                dynamicArray.add("brazz");
+            }
+        );
+    }
 }
